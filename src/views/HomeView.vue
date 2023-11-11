@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import Quizzes from '../../db.json'
-
-console.log(Quizzes)
+import Quizzes from '../data/db.json'
 </script>
 
 <template>
