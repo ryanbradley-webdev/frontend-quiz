@@ -6,7 +6,6 @@ import Quizzes from '../data/db.json'
 <template>
   <main>
     
-
     <section>
 
         <h1>

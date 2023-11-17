@@ -12,6 +12,11 @@ import { RouterView } from 'vue-router'
   <RouterView />
 </template>
 
-<style scoped>
-
+<style>
+main {
+  display: grid;
+  row-gap: 40px;
+  padding-inline: 24px;
+  padding-block: 32px;
+}
 </style>
