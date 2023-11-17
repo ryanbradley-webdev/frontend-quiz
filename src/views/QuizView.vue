@@ -3,6 +3,7 @@ import type { Quiz } from '@/types/types'
 import { computed } from '@vue/reactivity'
 import { ref, type PropType } from 'vue'
 import Button from '@/components/Button.vue'
+import ProgressBar from '@/components/ProgressBar.vue'
 
 const {
   quiz
@@ -38,6 +39,11 @@ const nextQuestion = () => {
       <h3>
         {{ currentQuestion.question }}
       </h3>
+
+      <ProgressBar
+        :currentQuestion="questionNumber + 1"
+        :totalQuestions="quiz.questions.length"
+      />
 
     </section>
 
