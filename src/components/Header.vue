@@ -120,7 +120,7 @@ input {
   display: flex;
   align-items: center;
   gap: 16px;
-  font-size: 18px;
+  font-size: var(--font-size-head-sm);
   font-weight: 500;
 }
 </style>

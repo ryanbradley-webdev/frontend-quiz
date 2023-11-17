@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import type { Quiz } from '@/types/types';
-import type { PropType } from 'vue';
+import type { Quiz } from '@/types/types'
+import { computed } from '@vue/reactivity'
+import { ref, type PropType } from 'vue'
+import Button from '@/components/Button.vue'
 
 const {
   quiz
@@ -10,20 +12,53 @@ const {
     required: true
   }
 })
+
+const questionNumber = ref(0)
+const currentQuestion = computed(() => quiz.questions[questionNumber.value])
+
+const nextQuestion = () => {
+  if (questionNumber.value < 9) {
+    questionNumber.value++
+  } else {
+    questionNumber.value = 0
+  }
+}
 </script>
 
 <template>
-  <div class="quiz">
-    <h1>{{ quiz.title }}</h1>
-  </div>
+
+  <main>
+
+    <section>
+
+      <em>
+        Question {{ questionNumber + 1 }} of {{ quiz.questions.length }}
+      </em>
+
+      <h3>
+        {{ currentQuestion.question }}
+      </h3>
+
+    </section>
+
+    <section>
+
+      <div v-for="option in currentQuestion.options">
+        {{ option }}
+      </div>
+
+      <Button
+        @btn-click="nextQuestion"
+      >
+        Next Question
+      </Button>
+
+    </section>
+
+  </main>
+
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .quiz {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+<style scoped>
+
 </style>

@@ -62,7 +62,7 @@ const {
   background-color: var(--clr-white-pri);
   border-radius: 12px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: var(--font-size-head-sm);
   font-weight: 500;
   box-shadow: 0 16px 40px #8fa0c211;
 }

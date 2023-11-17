@@ -5,6 +5,7 @@
   --clr-dark-navy: #313E51;
   --clr-purple-pri: #A729F5;
   --font-size-head-lg: 40px;
+  --font-size-head-sm: 18px;
   --font-size-body-sm: 14px;
   --line-height-body-sm: 150%;
 }
@@ -12,6 +13,7 @@
 @media screen and (min-width: 481px) {
   :root {
     --font-size-head-lg: 64px;
+    --font-size-head-sm: 28px;
     --font-size-body-sm: 12px;
   }
 }
