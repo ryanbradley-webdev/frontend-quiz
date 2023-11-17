@@ -22,7 +22,7 @@ const {
   </div>
 </template>
 
-<style>
+<style scoped>
 div {
   display: grid;
   place-items: center;
