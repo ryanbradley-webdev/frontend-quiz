@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import LinkItem from '@/components/LinkItem.vue'
 import Quizzes from '../data/db.json'
 </script>
 
@@ -24,9 +24,7 @@ import Quizzes from '../data/db.json'
       class="quizzes"
     >
 
-      <RouterLink to="quiz" v-for="quiz in Quizzes">
-        {{ quiz.title }}
-      </RouterLink>
+      <LinkItem v-for="quiz in Quizzes" :quiz="quiz" />
 
     </section>
 
