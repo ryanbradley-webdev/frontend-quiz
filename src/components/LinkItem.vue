@@ -55,7 +55,15 @@ const {
 .link-container {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 16px;
   padding: 12px;
+  width: 100%;
+  color: inherit;
+  background-color: var(--clr-white-pri);
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: 0 16px 40px #8fa0c211;
 }
 </style>

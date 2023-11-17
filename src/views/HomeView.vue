@@ -33,6 +33,7 @@ import { data } from '../data/data'
 
 <style>
 h1 {
+  font-size: var(--font-size-head-lg);
   font-weight: 300;
 }
 
@@ -40,8 +41,17 @@ strong {
   font-weight: 500;
 }
 
+em {
+  display: block;
+  margin-top: 16px;
+  color: var(--clr-grey-navy);
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-body-sm);
+}
+
 .quizzes {
   display: grid;
+  row-gap: 12px;
+  width: 100%;
 }
 </style>
-../data/data

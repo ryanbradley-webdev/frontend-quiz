@@ -18,5 +18,6 @@ main {
   row-gap: 40px;
   padding-inline: 24px;
   padding-block: 32px;
+  width: 100%;
 }
 </style>
