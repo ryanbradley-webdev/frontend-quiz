@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import LinkItem from '@/components/LinkItem.vue'
-import Quizzes from '../data/db.json'
+import { data } from '../data/data'
 </script>
 
 <template>
@@ -24,7 +24,7 @@ import Quizzes from '../data/db.json'
       class="quizzes"
     >
 
-      <LinkItem v-for="quiz in Quizzes" :quiz="quiz" />
+      <LinkItem v-for="quiz in data" :quiz="quiz" />
 
     </section>
 
@@ -44,3 +44,4 @@ strong {
   display: grid;
 }
 </style>
+../data/data
