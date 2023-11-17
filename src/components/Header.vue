@@ -1,9 +1,14 @@
 <script setup lang="ts">
+import IconContainer from '@/icons/IconContainer.vue'
+import HTMLIcon from '@/icons/HTMLIcon.vue'
+import CSSIcon from '@/icons/CSSIcon.vue'
+import JSIcon from '@/icons/JSIcon.vue'
+import AccessibilityIcon from '@/icons/AccessibilityIcon.vue'
 import { useThemeStore } from '@/stores/theme.js'
+import { useRoute } from 'vue-router'
 
 const themeStore = useThemeStore()
-
-
+const route = useRoute()
 </script>
 
 <template>
@@ -43,6 +48,31 @@ const themeStore = useThemeStore()
 
     </label>
 
+    <div
+      v-show="route.params.title"
+      class="category"
+    >
+      
+      <IconContainer color="#FFF1E9" :show="route.params.title === 'HTML'">
+        <HTMLIcon />
+      </IconContainer>
+
+      <IconContainer color="#E0FDEF" :show="route.params.title === 'CSS'">
+        <CSSIcon />
+      </IconContainer>
+
+      <IconContainer color="#EBF0FF" :show="route.params.title === 'JavaScript'">
+        <JSIcon />
+      </IconContainer>
+
+      <IconContainer color="#F6E7FF" :show="route.params.title === 'Accessibility'">
+        <AccessibilityIcon />
+      </IconContainer>
+
+      {{ route.params.title }}
+
+    </div>
+
   </header>
 </template>
 
@@ -50,6 +80,8 @@ const themeStore = useThemeStore()
 header {
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   padding: 24px;
 }
@@ -82,5 +114,13 @@ input {
   height: 20px;
   border-radius: 20px;
   background-color: var(--clr-purple-pri);
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 18px;
+  font-weight: 500;
 }
 </style>
