@@ -1,6 +1,4 @@
-import type { Quiz } from "@/types/types"
-
-export const data: Quiz[] = [
+export const data = [
   {
       title: "HTML",
       icon: "./assets/images/icon-html.svg",
@@ -425,4 +423,4 @@ export const data: Quiz[] = [
           }
       ]
   }
-]
+] as const

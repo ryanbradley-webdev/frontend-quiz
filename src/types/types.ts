@@ -1,11 +1,7 @@
-export type Quiz = {
-  title: string,
-  icon: string,
-  questions: Question[]
-}
+import { data } from '@/data/data'
 
-export type Question = {
-  question: string,
-  options: string[],
-  answer: string
-}
+type AllValuesOf<T> = T extends any ? T[keyof T] : never
+
+export type Quiz = typeof data[number]
+
+export type Questions = AllValuesOf<Quiz['questions']>

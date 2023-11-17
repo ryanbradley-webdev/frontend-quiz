@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router'
 import { type Quiz } from '../types/types'
 import type { PropType } from 'vue'
+import { data } from '@/data/data';
 
 const {
   quiz
@@ -14,7 +15,13 @@ const {
 </script>
 
 <template>
-  <RouterLink :to="`quiz/${quiz.title}`">
+  <RouterLink :to="{
+    name: 'quiz',
+    params: {
+      title: quiz.title
+    },
+    
+  }">
     {{ quiz.title }}
   </RouterLink>
 </template>
