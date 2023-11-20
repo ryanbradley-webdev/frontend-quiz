@@ -21,7 +21,7 @@ const selectedOption = ref('')
 const questionIsAnswered = ref(false)
 const questionIsCorrect = ref<boolean | null>(null)
 const correctAnswers = ref(0)
-const quizIsComplete = ref(true)
+const quizIsComplete = ref(false)
 
 const submitAnswer = () => {
   if (!selectedOption.value) {

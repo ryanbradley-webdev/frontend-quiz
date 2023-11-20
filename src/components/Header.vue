@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import IconContainer from '@/icons/IconContainer.vue'
-import HTMLIcon from '@/icons/HTMLIcon.vue'
-import CSSIcon from '@/icons/CSSIcon.vue'
-import JSIcon from '@/icons/JSIcon.vue'
-import AccessibilityIcon from '@/icons/AccessibilityIcon.vue'
 import { useThemeStore } from '@/stores/theme.js'
 import { useRoute } from 'vue-router'
+import QuizLabel from './QuizLabel.vue'
 
 const themeStore = useThemeStore()
 const route = useRoute()
@@ -53,23 +49,9 @@ const route = useRoute()
       class="category"
     >
       
-      <IconContainer color="#FFF1E9" :show="route.params.title === 'HTML'">
-        <HTMLIcon />
-      </IconContainer>
-
-      <IconContainer color="#E0FDEF" :show="route.params.title === 'CSS'">
-        <CSSIcon />
-      </IconContainer>
-
-      <IconContainer color="#EBF0FF" :show="route.params.title === 'JavaScript'">
-        <JSIcon />
-      </IconContainer>
-
-      <IconContainer color="#F6E7FF" :show="route.params.title === 'Accessibility'">
-        <AccessibilityIcon />
-      </IconContainer>
-
-      {{ route.params.title }}
+      <QuizLabel
+        :title="route.params.title as string"
+      />
 
     </div>
 
