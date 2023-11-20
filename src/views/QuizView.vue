@@ -5,6 +5,8 @@ import { ref, type PropType } from 'vue'
 import Button from '@/components/Button.vue'
 import ProgressBar from '@/components/ProgressBar.vue'
 import QuizLabel from '@/components/QuizLabel.vue'
+import CheckIcon from '@/icons/CheckIcon.vue'
+import XIcon from '@/icons/XIcon.vue'
 
 const {
   quiz
@@ -22,10 +24,18 @@ const questionIsAnswered = ref(false)
 const questionIsCorrect = ref<boolean | null>(null)
 const correctAnswers = ref(0)
 const quizIsComplete = ref(false)
+const error = ref(false)
+
+const handleChange = (option: string) => {
+  if (error.value) {
+    error.value = false
+  }
+  selectedOption.value = option
+}
 
 const submitAnswer = () => {
   if (!selectedOption.value) {
-    return
+    return error.value = true
   }
 
   questionIsAnswered.value = true
@@ -42,6 +52,7 @@ const nextQuestion = () => {
   }
 
   questionIsAnswered.value = false
+  selectedOption.value = ''
 
   if (questionNumber.value < 9) {
     questionNumber.value++
@@ -154,8 +165,22 @@ const restartQuiz = () => {
           name="options"
           :id="option"
           :value="option"
-          @change="() => selectedOption = option"
+          @change="() => handleChange(option)"
         >
+
+        <div
+          v-show="questionIsAnswered && option === currentQuestion.answer"
+          class="answer-option"
+        >
+          <CheckIcon />
+        </div>
+
+        <div
+          v-show="questionIsAnswered && selectedOption === option && currentQuestion.answer !== option"
+          class="answer-option"
+        >
+          <XIcon />
+        </div>
       </label>
 
       <Button
@@ -173,6 +198,15 @@ const restartQuiz = () => {
       >
         {{ questionIsAnswered ? questionNumber === quiz.questions.length - 1 ? 'See Results' :  'Next Question' : 'Submit Answer' }}
       </Button>
+
+      <div
+        v-show="error"
+        class="error"
+      >
+        <XIcon />
+
+        Please select an answer
+      </div>
 
     </section>
 
@@ -247,6 +281,18 @@ span {
   display: none;
 }
 
+.answer-option {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  display: flex;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  background: radial-gradient(white 40%, transparent);
+}
+
 .option-container::before {
   display: grid;
   place-items: center;
@@ -304,5 +350,14 @@ label.option-container[data-correct-answer="true"]::before {
 
 .option-container[data-incorrect-answer="true"]:has(input:checked)::before {
   background-color: var(--clr-red-pri);
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--clr-red-pri);
+  font-size: var(--font-size-body-md);
 }
 </style>
