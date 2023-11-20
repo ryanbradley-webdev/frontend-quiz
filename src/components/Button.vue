@@ -16,7 +16,7 @@ button {
   font-size: var(--font-size-head-sm);
   color: var(--clr-white-pri);
   background-color: var(--clr-purple-pri);
-  border-radius: 24px;
+  border-radius: 12px;
   border: none;
 }
 </style>
