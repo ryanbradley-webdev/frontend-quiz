@@ -19,6 +19,8 @@ const currentQuestion = computed(() => quiz.questions[questionNumber.value])
 const selectedOption = ref('')
 const questionIsAnswered = ref(false)
 const questionIsCorrect = ref<boolean | null>(null)
+const correctAnswers = ref(0)
+const quizIsComplete = ref(false)
 
 const submitAnswer = () => {
   if (!selectedOption.value) {
@@ -28,7 +30,9 @@ const submitAnswer = () => {
   questionIsAnswered.value = true
   questionIsCorrect.value = selectedOption.value === currentQuestion.value.answer
 
-  console.log('hello')
+  if (questionIsCorrect.value) {
+    correctAnswers.value++
+  }
 }
 
 const nextQuestion = () => {
@@ -42,13 +46,46 @@ const nextQuestion = () => {
 }
 
 const seeResults = () => {
+  quizIsComplete.value = true
+}
 
+const restartQuiz = () => {
+  quizIsComplete.value = false
+  questionNumber.value = 0
+  correctAnswers.value = 0
+  questionIsCorrect.value = false
+  questionIsAnswered.value = false
+  selectedOption.value = ''
 }
 </script>
 
 <template>
 
-  <main>
+  <main v-if="quizIsComplete">
+
+    <section>
+      <h1>
+        Quiz completed
+        <br />
+        <strong>
+          You scored...
+        </strong>
+      </h1>
+    </section>
+
+    <section>
+      {{ correctAnswers }} out of {{ quiz.questions.length }}
+
+      <Button
+        @btn-click="restartQuiz"
+      >
+        Play Again
+      </Button>
+    </section>
+
+  </main>
+
+  <main v-else>
 
     <section
       class="question-container"
