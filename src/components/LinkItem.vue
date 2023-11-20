@@ -2,11 +2,7 @@
 import { RouterLink } from 'vue-router'
 import { type Quiz } from '../types/types'
 import type { PropType } from 'vue'
-import IconContainer from '@/icons/IconContainer.vue'
-import HTMLIcon from '@/icons/HTMLIcon.vue'
-import CSSIcon from '@/icons/CSSIcon.vue'
-import JSIcon from '@/icons/JSIcon.vue'
-import AccessibilityIcon from '@/icons/AccessibilityIcon.vue'
+import QuizLabel from './QuizLabel.vue'
 
 const {
   quiz
@@ -29,24 +25,9 @@ const {
     class="link-container"
   >
 
-    <IconContainer color="#FFF1E9" :show="quiz.title === 'HTML'">
-      <HTMLIcon />
-    </IconContainer>
-
-    <IconContainer color="#E0FDEF" :show="quiz.title === 'CSS'">
-      <CSSIcon />
-    </IconContainer>
-
-    <IconContainer color="#EBF0FF" :show="quiz.title === 'JavaScript'">
-      <JSIcon />
-    </IconContainer>
-
-    <IconContainer color="#F6E7FF" :show="quiz.title === 'Accessibility'">
-      <AccessibilityIcon />
-    </IconContainer>
-
-
-    {{ quiz.title }}
+    <QuizLabel
+      :title="quiz.title"
+    />
 
   </RouterLink>
 </template>

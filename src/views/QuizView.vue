@@ -4,6 +4,7 @@ import { computed } from '@vue/reactivity'
 import { ref, type PropType } from 'vue'
 import Button from '@/components/Button.vue'
 import ProgressBar from '@/components/ProgressBar.vue'
+import QuizLabel from '@/components/QuizLabel.vue'
 
 const {
   quiz
@@ -20,7 +21,7 @@ const selectedOption = ref('')
 const questionIsAnswered = ref(false)
 const questionIsCorrect = ref<boolean | null>(null)
 const correctAnswers = ref(0)
-const quizIsComplete = ref(false)
+const quizIsComplete = ref(true)
 
 const submitAnswer = () => {
   if (!selectedOption.value) {
@@ -36,6 +37,10 @@ const submitAnswer = () => {
 }
 
 const nextQuestion = () => {
+  if (!selectedOption.value) {
+    return
+  }
+
   questionIsAnswered.value = false
 
   if (questionNumber.value < 9) {
@@ -74,7 +79,27 @@ const restartQuiz = () => {
     </section>
 
     <section>
-      {{ correctAnswers }} out of {{ quiz.questions.length }}
+      <div
+        class="quiz-label-container"
+      >
+
+        <div
+          class="quiz-label"
+        >
+          <QuizLabel
+            :title="quiz.title"
+          />
+        </div>
+
+        <h2>
+          {{ correctAnswers }}
+        </h2>
+        
+        <span>
+          out of {{ quiz.questions.length }}
+        </span>
+
+      </div>
 
       <Button
         @btn-click="restartQuiz"
@@ -156,6 +181,36 @@ const restartQuiz = () => {
 </template>
 
 <style scoped>
+.quiz-label-container {
+  padding: 32px;
+  margin-bottom: 12px;
+  background-color: var(--clr-white-pri);
+  border-radius: 12px;
+  text-align: center;
+}
+
+h2 {
+  font-size: var(--font-size-display);
+  font-weight: 500;
+}
+
+span {
+  font-size: 18px;
+  color: var(--clr-grey-navy);
+}
+
+.quiz-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  color: inherit;
+  font-size: var(--font-size-head-sm);
+  font-weight: 500;
+  box-shadow: 0 16px 40px #8fa0c211;
+}
+
 .question-container {
   display: grid;
   row-gap: 24px;

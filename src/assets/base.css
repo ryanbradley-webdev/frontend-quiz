@@ -6,6 +6,7 @@
   --clr-purple-pri: #A729F5;
   --clr-green-pri: #26D782;
   --clr-red-pri: #EE5454;
+  --font-size-display: 88px;
   --font-size-head-lg: 40px;
   --font-size-head-sm: 18px;
   --font-size-body-sm: 14px;
@@ -14,6 +15,7 @@
 
 @media screen and (min-width: 481px) {
   :root {
+    --font-size-display: 144px;
     --font-size-head-lg: 64px;
     --font-size-head-sm: 28px;
     --font-size-body-sm: 12px;
