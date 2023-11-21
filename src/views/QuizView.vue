@@ -331,7 +331,7 @@ h2 {
 }
 
 .option-container:has(input:checked)::after,
-.option-container[data-correct-answer="true"]::after,
+.options:not(:has(.option-container[data-incorrect-answer="true"])) .option-container[data-correct-answer="true"]::after,
 .option-container[data-incorrect-answer="true"]::after {
   content: '';
   position: absolute;
@@ -345,11 +345,11 @@ h2 {
   background-color: var(--clr-purple-pri);
 }
 
-label.option-container[data-correct-answer="true"]::after {
+.options:not(:has(.option-container[data-incorrect-answer="true"])) .option-container[data-correct-answer="true"]::after {
   border-color: var(--clr-green-pri);
 }
 
-label.option-container[data-correct-answer="true"]::before {
+.options:not(:has(.option-container[data-incorrect-answer="true"])) .option-container[data-correct-answer="true"]::before {
   color: var(--clr-white-pri);
   background-color: var(--clr-green-pri);
 }
