@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import LinkItem from '@/components/LinkItem.vue'
 import { data } from '../data/data'
+import { useThemeStore } from '@/stores/theme';
+
+const themeStore = useThemeStore()
 </script>
 
 <template>
-  <main>
+  <main
+    :data-theme="themeStore.theme"
+  >
     
     <section>
 
@@ -44,7 +49,7 @@ strong {
 em {
   display: block;
   margin-top: 16px;
-  color: var(--clr-grey-navy);
+  color: var(--text-color-sec);
   font-size: var(--font-size-body-sm);
   line-height: var(--line-height-body-sm);
 }

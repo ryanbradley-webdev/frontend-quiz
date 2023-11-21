@@ -1,6 +1,8 @@
 :root {
   --clr-white-pri: #FFF;
   --clr-light-grey: #F4F6FA;
+  --clr-light-bluish: #ABC1E1;
+  --clr-navy: #3B4D66;
   --clr-grey-navy: #626C7F;
   --clr-dark-navy: #313E51;
   --clr-purple-pri: #A729F5;
@@ -33,9 +35,22 @@
 }
 
 html {
-  color: var(--clr-dark-navy);
-  background-color: var(--clr-light-grey);
+  --text-color-pri: var(--clr-dark-navy);
+  --text-color-sec: var(--clr-grey-navy);
+  --bg-color-pri: var(--clr-white-pri);
+  --bg-color-sec: var(--clr-light-grey);
+  --progress-bg-pri: var(--clr-white-pri);
+  color: var(--text-color-pri);
+  background-color: var(--bg-color-sec);
   font-family: 'Rubik';
+}
+
+html:has(main[data-theme="dark"]) {
+  --text-color-pri: var(--clr-white-pri);
+  --text-color-sec: var(--clr-light-bluish);
+  --bg-color-pri: var(--clr-navy);
+  --bg-color-sec: var(--clr-dark-navy);
+  --progress-bg-pri: var(--clr-navy);
 }
 
 #app {

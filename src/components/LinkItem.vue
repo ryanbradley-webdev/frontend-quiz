@@ -40,7 +40,7 @@ const {
   padding: 12px;
   width: 100%;
   color: inherit;
-  background-color: var(--clr-white-pri);
+  background-color: var(--bg-color-pri);
   border-radius: 12px;
   text-decoration: none;
   font-size: var(--font-size-head-sm);

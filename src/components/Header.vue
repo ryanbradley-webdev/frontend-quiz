@@ -50,7 +50,7 @@ const route = useRoute()
     >
       
       <QuizLabel
-        :title="route.params.title as string"
+        :title="(route.params.title as string)"
       />
 
     </div>

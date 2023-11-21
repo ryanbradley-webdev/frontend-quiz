@@ -34,7 +34,7 @@ const {
   width: 100%;
   height: 16px;
   padding: 4px;
-  background-color: var(--clr-white-pri);
+  background-color: var(--progress-bg-pri);
   border-radius: 16px;
 }
 

@@ -7,6 +7,9 @@ import ProgressBar from '@/components/ProgressBar.vue'
 import QuizLabel from '@/components/QuizLabel.vue'
 import CheckIcon from '@/icons/CheckIcon.vue'
 import XIcon from '@/icons/XIcon.vue'
+import { useThemeStore } from '@/stores/theme'
+
+const themeStore = useThemeStore()
 
 const {
   quiz
@@ -77,7 +80,10 @@ const restartQuiz = () => {
 
 <template>
 
-  <main v-if="quizIsComplete">
+  <main
+    v-if="quizIsComplete"
+    :data-theme="themeStore.theme"
+  >
 
     <section>
       <h1>
@@ -121,7 +127,10 @@ const restartQuiz = () => {
 
   </main>
 
-  <main v-else>
+  <main
+    v-else
+    :data-theme="themeStore.theme"
+  >
 
     <section
       class="question-container"
@@ -218,19 +227,22 @@ const restartQuiz = () => {
 .quiz-label-container {
   padding: 32px;
   margin-bottom: 12px;
-  background-color: var(--clr-white-pri);
+  background-color: var(--bg-color-pri);
   border-radius: 12px;
   text-align: center;
 }
 
 h2 {
+  display: block;
+  margin-block: 16px;
+  color: var(--text-color-pri);
   font-size: var(--font-size-display);
   font-weight: 500;
 }
 
-span {
+.quiz-label-container span {
   font-size: 18px;
-  color: var(--clr-grey-navy);
+  color: var(--text-color-sec);
 }
 
 .quiz-label {
@@ -242,7 +254,6 @@ span {
   color: inherit;
   font-size: var(--font-size-head-sm);
   font-weight: 500;
-  box-shadow: 0 16px 40px #8fa0c211;
 }
 
 .question-container {
@@ -268,8 +279,7 @@ span {
   padding: 12px;
   width: 100%;
   height: 64px;
-  color: inherit;
-  background-color: var(--clr-white-pri);
+  background-color: var(--bg-color-pri);
   border-radius: 12px;
   text-decoration: none;
   font-size: var(--font-size-head-sm);
@@ -290,7 +300,7 @@ span {
   height: 40px;
   width: 40px;
   border-radius: 100%;
-  background: radial-gradient(white 40%, transparent);
+  background: radial-gradient(var(--bg-color-pri) 40%, transparent);
 }
 
 .option-container::before {
