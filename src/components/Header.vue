@@ -45,7 +45,7 @@ const route = useRoute()
     </label>
 
     <div
-      v-show="route.params.title"
+      v-if="route.params.title"
       class="category"
     >
       

@@ -8,6 +8,7 @@ import QuizLabel from '@/components/QuizLabel.vue'
 import CheckIcon from '@/icons/CheckIcon.vue'
 import XIcon from '@/icons/XIcon.vue'
 import { useThemeStore } from '@/stores/theme'
+import { RouterLink } from 'vue-router'
 
 const themeStore = useThemeStore()
 
@@ -123,6 +124,14 @@ const restartQuiz = () => {
       >
         Play Again
       </Button>
+
+      <RouterLink
+        to="/"
+      >
+        <Button>
+          New Quiz
+        </Button>
+      </RouterLink>
     </section>
 
   </main>
@@ -229,17 +238,20 @@ main {
   column-gap: 100px;
 }
 
+section:has(.quiz-label-container) > button {
+  margin-block: 12px;
+}
+
 .quiz-label-container {
   padding: 32px;
-  margin-bottom: 12px;
   background-color: var(--bg-color-pri);
   border-radius: 12px;
   text-align: center;
 }
 
 @media screen and (min-width: 580px) {
-  .quiz-label-container {
-    margin-bottom: 32px;
+  section:has(.quiz-label-container) > button {
+    margin-block: 24px;
   }
 }
 
@@ -360,7 +372,7 @@ h3 {
   border-radius: 6px;
 }
 
-.option-container[aria-disabled="false"]:is(:hover, :focus)::before {
+.option-container[aria-disabled="false"]:not(:has(input:checked)):is(:hover, :focus)::before {
   color: var(--clr-purple-pri);
   background-color: #F6E7FF;
 }
@@ -432,12 +444,27 @@ h3 {
   background-color: var(--clr-red-pri);
 }
 
+section:has(.error) {
+  position: relative;
+}
+
 .error {
+  position: absolute;
+  bottom: -52px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   color: var(--clr-red-pri);
   font-size: var(--font-size-body-md);
+}
+
+@media screen and (min-width: 580px) {
+  .error {
+    bottom: -72px;
+  }
 }
 </style>
