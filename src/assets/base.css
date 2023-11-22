@@ -43,6 +43,10 @@ html {
   color: var(--text-color-pri);
   background-color: var(--bg-color-sec);
   font-family: 'Rubik';
+  background-image: url(/pattern-background-mobile-light.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }
 
 html:has(main[data-theme="dark"]) {
@@ -51,6 +55,29 @@ html:has(main[data-theme="dark"]) {
   --bg-color-pri: var(--clr-navy);
   --bg-color-sec: var(--clr-dark-navy);
   --progress-bg-pri: var(--clr-navy);
+  background-image: url(/pattern-background-mobile-dark.svg);
+}
+
+@media screen and (min-width: 481px) {
+  html {
+    background-image: url(/pattern-background-tablet-light.svg);
+    background-size: contain;
+  }
+
+  html:has(main[data-theme="dark"]) {
+    background-image: url(/pattern-background-tablet-dark.svg);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  html {
+    background-image: url(/pattern-background-desktop-light.svg);
+    background-size: cover;
+  }
+
+  html:has(main[data-theme="dark"]) {
+    background-image: url(/pattern-background-desktop-dark.svg);
+  }
 }
 
 #app {
