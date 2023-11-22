@@ -10,9 +10,11 @@
   --clr-red-pri: #EE5454;
   --font-size-display: 88px;
   --font-size-head-lg: 40px;
+  --font-size-head-md: 20px;
   --font-size-head-sm: 18px;
   --font-size-body-md: 18px;
   --font-size-body-sm: 14px;
+  --line-height-head-md: 24px;
   --line-height-body-sm: 150%;
 }
 
@@ -20,9 +22,11 @@
   :root {
     --font-size-display: 144px;
     --font-size-head-lg: 64px;
+    --font-size-head-md: 36px;
     --font-size-head-sm: 28px;
     --font-size-body-md: 24px;
     --font-size-body-sm: 20px;
+    --line-height-head-md: 43px;
   }
 }
 

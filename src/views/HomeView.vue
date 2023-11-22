@@ -36,12 +36,7 @@ const themeStore = useThemeStore()
   </main>
 </template>
 
-<style>
-h1 {
-  font-size: var(--font-size-head-lg);
-  font-weight: 300;
-}
-
+<style scoped>
 strong {
   font-weight: 500;
 }

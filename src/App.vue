@@ -29,9 +29,15 @@ main {
 @media screen and (min-width: 769px) and (orientation: landscape) {
   main {
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 10%;
     max-width: 1288px;
     margin-inline: auto;
     padding-block: 0;
   }
+}
+
+h1 {
+  font-size: var(--font-size-head-lg);
+  font-weight: 300;
 }
 </style>

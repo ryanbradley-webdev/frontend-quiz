@@ -232,12 +232,23 @@ const restartQuiz = () => {
   text-align: center;
 }
 
+@media screen and (min-width: 481px) {
+  .quiz-label-container {
+    margin-bottom: 32px;
+  }
+}
+
 h2 {
   display: block;
   margin-block: 16px;
   color: var(--text-color-pri);
   font-size: var(--font-size-display);
   font-weight: 500;
+}
+
+h3 {
+  font-size: var(--font-size-head-md);
+  line-height: var(--line-height-head-md);
 }
 
 .quiz-label-container span {
@@ -266,9 +277,38 @@ h2 {
   row-gap: 12px;
 }
 
+@media screen and (min-width: 481px) {
+  .question-container {
+    row-gap: 40px;
+  }
+
+  .question {
+    row-gap: 27px;
+  }
+}
+
+@media screen and (min-width: 769px) and (orientation: landscape) {
+  .question-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 92px;
+  }
+}
+
 .options {
   display: grid;
   row-gap: 12px;
+}
+
+@media screen and (min-width: 481px) {
+  .options {
+    row-gap: 24px;
+  }
+
+  .options > button {
+    margin-top: 12px;
+  }
 }
 
 .option-container {
@@ -310,8 +350,21 @@ h2 {
   height: 40px;
   width: 40px;
   color: var(--clr-grey-navy);
+  font-size: var(--font-size-head-sm);
   background-color: var(--clr-light-grey);
   border-radius: 6px;
+}
+
+@media screen and (min-width: 481px) {
+  .option-container {
+    height: 80px;
+  }
+
+  .option-container::before {
+    height: 56px;
+    width: 56px;
+    border-radius: 12px;
+  }
 }
 
 .option-container:first-child::before {
