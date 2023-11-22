@@ -167,6 +167,7 @@ const restartQuiz = () => {
         :data-incorrect-answer="questionIsAnswered && selectedOption === option && currentQuestion.answer !== option"
         :data-correct-answer="questionIsAnswered && option === currentQuestion.answer"
         :key="option"
+        :aria-disabled="questionIsAnswered"
       >
         <span>{{ option }}</span>
         <input
@@ -224,6 +225,10 @@ const restartQuiz = () => {
 </template>
 
 <style scoped>
+main {
+  column-gap: 100px;
+}
+
 .quiz-label-container {
   padding: 32px;
   margin-bottom: 12px;
@@ -232,7 +237,7 @@ const restartQuiz = () => {
   text-align: center;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 580px) {
   .quiz-label-container {
     margin-bottom: 32px;
   }
@@ -277,7 +282,7 @@ h3 {
   row-gap: 12px;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 580px) {
   .question-container {
     row-gap: 40px;
   }
@@ -287,7 +292,7 @@ h3 {
   }
 }
 
-@media screen and (min-width: 769px) and (orientation: landscape) {
+@media screen and (min-width: 1168px) and (orientation: landscape) {
   .question-container {
     display: flex;
     flex-direction: column;
@@ -301,7 +306,7 @@ h3 {
   row-gap: 12px;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 580px) {
   .options {
     row-gap: 24px;
   }
@@ -355,15 +360,27 @@ h3 {
   border-radius: 6px;
 }
 
-@media screen and (min-width: 481px) {
+.option-container[aria-disabled="false"]:is(:hover, :focus)::before {
+  color: var(--clr-purple-pri);
+  background-color: #F6E7FF;
+}
+
+@media screen and (min-width: 580px) {
   .option-container {
-    height: 80px;
+    height: auto;
+    min-height: 80px;
   }
 
   .option-container::before {
     height: 56px;
     width: 56px;
     border-radius: 12px;
+  }
+}
+
+@media screen and (min-width: 1168px) {
+  .option-container {
+    height: 92px;
   }
 }
 

@@ -68,14 +68,14 @@ header {
   padding: 24px;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 580px) {
   header {
     padding-inline: 64px;
     padding-block: 56px;
   }
 }
 
-@media screen and (min-width: 769px) and (orientation: landscape) {
+@media screen and (min-width: 1168px) and (orientation: landscape) {
   header {
     max-width: 1288px;
     padding-block: 99px;

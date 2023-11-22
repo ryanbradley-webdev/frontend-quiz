@@ -47,4 +47,16 @@ const {
   font-weight: 500;
   box-shadow: 0 16px 40px #8fa0c211;
 }
+
+@media screen and (min-width: 580px) {
+  .link-container {
+    height: 80px;
+  }
+}
+
+@media screen and (min-width: 1168px) {
+  .link-container {
+    height: 96px;
+  }
+}
 </style>

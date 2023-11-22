@@ -18,7 +18,7 @@ main {
   width: 100%;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 580px) {
   main {
     padding-inline: 64px;
     padding-block: 7px;
@@ -26,10 +26,9 @@ main {
   }
 }
 
-@media screen and (min-width: 769px) and (orientation: landscape) {
+@media screen and (min-width: 1168px) and (orientation: landscape) {
   main {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 10%;
+    grid-template-columns: 1fr 564px;
     max-width: 1288px;
     margin-inline: auto;
     padding-block: 0;

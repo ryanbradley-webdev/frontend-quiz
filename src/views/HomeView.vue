@@ -49,7 +49,7 @@ em {
   line-height: var(--line-height-body-sm);
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1168px) {
   em {
     margin-top: 48px;
   }
@@ -59,5 +59,11 @@ em {
   display: grid;
   row-gap: 12px;
   width: 100%;
+}
+
+@media screen and (min-width: 580px) {
+  .quizzes {
+    row-gap: 24px;
+  }
 }
 </style>

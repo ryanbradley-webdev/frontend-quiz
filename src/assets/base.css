@@ -18,7 +18,7 @@
   --line-height-body-sm: 150%;
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 580px) {
   :root {
     --font-size-display: 144px;
     --font-size-head-lg: 64px;
@@ -62,7 +62,7 @@ html:has(main[data-theme="dark"]) {
   background-image: url(/pattern-background-mobile-dark.svg);
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 580px) {
   html {
     background-image: url(/pattern-background-tablet-light.svg);
     background-size: contain;
@@ -73,7 +73,7 @@ html:has(main[data-theme="dark"]) {
   }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1168px) {
   html {
     background-image: url(/pattern-background-desktop-light.svg);
     background-size: cover;
