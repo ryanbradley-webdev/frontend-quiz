@@ -22,7 +22,7 @@
     --font-size-head-lg: 64px;
     --font-size-head-sm: 28px;
     --font-size-body-md: 24px;
-    --font-size-body-sm: 12px;
+    --font-size-body-sm: 20px;
   }
 }
 
@@ -82,4 +82,10 @@ html:has(main[data-theme="dark"]) {
 
 #app {
   width: 100%;
+}
+
+button,
+label,
+label * {
+  cursor: pointer;
 }
